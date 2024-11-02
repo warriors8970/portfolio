@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Desktop</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/anurati">
+</head>
+<body>
+    <div class="desktop">
+        <!-- Video Background -->
+        <video autoplay muted loop id="background-video">
+            <source src="/assets/desktop_image.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        
+        <audio id="background-music" loop>
+            <source src="/assets/lofi_bg_music.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+
+        
+        <script>
+            // Function to play music on any user interaction
+            function enableMusicOnInteraction() {
+                var music = document.getElementById('background-music');
+                music.play(); // Attempt to play music
+                document.removeEventListener('click', enableMusicOnInteraction); // Remove event listener once played
+            }
+        
+            // Attach event listener for user interaction
+            document.addEventListener('click', enableMusicOnInteraction);
+        </script>
+
+        <!-- Text in the center -->
+        <div class="centered-text">
+            <h1 class="portfolio-title">Portfolio</h1>
+            <h2 class="intro-text">Hi, I am Kevin Samson J</h2>
+        </div>
+
+        <!-- Folder Icons -->
+        <div class="folder-container">
+            <div class="folder" onclick="openFolder('projects-popup')">
+                <img src="/assets/open-folder.png" alt="Projects Folder">
+                <p>Projects</p>
+            </div>
+            <div class="folder" onclick="openFolder('resume-popup')">
+                <img src="/assets/open-folder.png" alt="Resume Folder">
+                <p>Resume</p>
+            </div>
+            <!-- <div class="folder" onclick="openFolder('studies-popup')">
+                <img src="/assets/open-folder.png" alt="Studies Folder">
+                <p>Exposures</p>
+            </div> -->
+        </div>
+
+       
+        <!-- Projects Popup -->
+        <div class="popup" id="projects-popup">
+            <div class="popup-content">
+                <span class="close" onclick="closeFolder('projects-popup')">&times;</span>
+                <div class="project-list">
+                    <div class="folder" onclick="openProjectDetails('project1-details-popup')">
+                        <img src="/assets/open-folder.png" alt="Project 1">
+                        <p>Project 1</p>
+                    </div>
+                    <div class="folder" onclick="openProjectDetails('project2-details-popup')">
+                        <img src="/assets/open-folder.png" alt="Project 2">
+                        <p>Project 2</p>
+                    </div>
+                    <!-- <div class="folder" onclick="openProjectDetails('project3-details-popup')">
+                        <img src="/assets/open-folder.png" alt="Project 3">
+                        <p>Project 3</p>
+                    </div>
+                    <div class="folder" onclick="openProjectDetails('project4-details-popup')">
+                        <img src="/assets/open-folder.png" alt="Project 4">
+                        <p>Project 4</p>
+                    </div> -->
+                    
+                </div>
+            </div>
+        </div>
+
+        <!-- Resume Popup -->
+
+        <!-- <div class="popup" id="resume-popup">
+            <div class="popup-content">
+                <span class="close" onclick="closeFolder('resume-popup')">&times;</span>
+                <h3 class="popup-heading">Download Resume</h3>
+                <div class="project-details">
+                    <div class="preview">
+                        <img src="/assets/Resume/1.jpg" class="preview-image" alt="Preview Image 1">
+                    </div>
+                    <div class="preview">
+                        <img src="/assets/Resume/2.jpg" class="preview-image" alt="Preview Image 2">
+                    </div>
+                </div>
+                <div class="download-button-container">
+                    <button onclick="downloadResume()">Download</button>
+                </div>
+            </div>
+        </div> -->
+        <div class="popup" id="resume-popup">
+            <div class="popup-content">
+                <span class="close" onclick="closeFolder('resume-popup')">&times;</span>
+                <h3 class="popup-heading">Resume</h3>
+                <div class="project-details">
+                    <div class="preview">
+                        <div class="image-container">
+                            <img src="/assets/Resume/1.jpg" class="preview-image" alt="Preview Image 1">
+                            <div class="zoom-icon" onclick="zoomImage('/assets/Resume/1.jpg')">
+                                <img src="/assets/Icons/fullscreen.png" alt="Zoom Icon" class="zoom-icon-image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="preview">
+                        <div class="image-container">
+                            <img src="/assets/Resume/2.jpg" class="preview-image" alt="Preview Image 2">
+                            <div class="zoom-icon" onclick="zoomImage('/assets/Resume/2.jpg')">
+                                <img src="/assets/Icons/fullscreen.png" alt="Zoom Icon" class="zoom-icon-image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="download-button-container">
+                    <a href="/assets/Resume/resume_2_!1.pdf" download>
+                        <button>Download</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Modal for zoomed image -->
+        <div id="zoom-modal" class="zoom-modal" onclick="closeZoom()">
+            <span class="close-modal">&times;</span>
+            <img class="zoomed-image" id="zoomed-image" alt="Zoomed Preview">
+        </div>
+
+        <!-- Project 1 Details Popup -->
+        <div class="popup" id="project1-details-popup">
+            <div class="popup-content">
+                <span class="close" onclick="closeFolder('project1-details-popup')">&times;</span>
+                <div class="project-details">
+                    <div class="description">
+                        <h3>CritiqueSuite</h3>
+                        <p>CritiqueSuite is an advanced review generation application that provides concise insights from just a single keyword. Originally developed for movie reviews, it now supports broader applications, including product reviews. Users can input a keyword—such as a movie title or product name—and receive a summarized, well-rounded review accompanied by a relevant image.</p>
+        
+                        <h4>Technologies Utilized</h4>
+                        <ul>
+                            <li><strong>Python:</strong> Primary programming language for development.</li>
+                            <li><strong>Transformers Library:</strong> Powers the advanced summarization models.</li>
+                            <li><strong>NLTK:</strong> For natural language processing, including tasks like sentence tokenization.</li>
+                            <li><strong>Google Custom Search API:</strong> Retrieves relevant images to complement the generated content.</li>
+                            <li><strong>Flask:</strong> Facilitates a streamlined web application environment.</li>
+                        </ul>
+        
+                        <p>Developing CritiqueSuite presented several challenges, especially in generating reviews that are both informative and engaging. By leveraging cutting-edge NLP techniques, I refined the app to meet high standards for quality and relevance. CritiqueSuite serves as a reliable tool for anyone seeking immediate, actionable insights—ideal for movie enthusiasts, shoppers, or any decision-makers.</p>
+        
+                        <!-- <button onclick="openProjectUsage('project1-usage-popup')">Use</button> -->
+                    </div>
+                    <div class="preview">
+                        <h3>Preview</h3>
+                        <video controls>
+                            <source src="/assets/Projects/Critique_final.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <!-- Project 2 Details Popup -->
+        <div class="popup" id="project2-details-popup">
+            <div class="popup-content">
+                <span class="close" onclick="closeFolder('project2-details-popup')">&times;</span>
+                <div class="project-details">
+                    <div class="description">
+                        <h3>Gesture-Controlled IoT: Enhancing Hands-Free Smart Home Interaction</h3>
+                        <p>This innovative project enables users to control household devices—such as TVs 
+                            and air conditioners—through gesture detection, effectively transforming how we 
+                            interact with smart home technology. Built on a Raspberry Pi equipped with a camera, 
+                            this system captures real-time gestures and translates them into infrared (IR) commands 
+                            for compatible devices.</p>
+        
+                        <h4>Technologies Utilized</h4>
+                        <ul>
+                            <li><strong>Raspberry Pi:</strong> The central processing unit, responsible for capturing gestures and transmitting commands.</li>
+                            <li><strong>OpenCV:</strong> Used for real-time video processing and gesture recognition.</li>
+                            <li><strong>MediaPipe:</strong> Facilitates efficient gesture detection through advanced machine learning models.</li>
+                            <li><strong>IR Transmitter:</strong> Sends out the configured IR codes to control devices remotely.</li>
+                        </ul>
+                        
+                        <h4>Implementation Details</h4>
+                        <p>The system is designed to recognize gestures corresponding to commands from an LG remote control. When a user performs 
+                            a specific gesture, the camera captures this motion, and the model processes the gesture in real-time. Upon recognition, 
+                            the Raspberry Pi transmits the appropriate IR code through its transmitter, allowing seamless control of the designated device.</p>
+        
+                        <!-- <button onclick="openProjectUsage('project1-usage-popup')">Use</button> -->
+                    </div>
+                    <div class="preview">
+                        <h3>Preview</h3>
+                        <video controls>
+                            <source src="/assets/Projects/iot_hand_gesture.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Project 3 Details Popup -->
+        <!-- <div class="popup" id="project3-details-popup">
+            <div class="popup-content">
+                <span class="close" onclick="closeFolder('project3-details-popup')">&times;</span>
+                <div class="project-details">
+                    <div class="description">
+                        <h3>Project 3 Description</h3>
+                        <p>This is where you can describe your Project 3 in detail.</p>
+                        <button onclick="openProjectUsage('project3-usage-popup')">Use</button>
+                    </div>
+                    <div class="preview">
+                        <h3>Preview</h3>
+                        <video controls>
+                            <source src="path/to/project3-video.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <!-- Project 4 Details Popup -->
+        <!-- <div class="popup" id="project4-details-popup">
+            <div class="popup-content">
+                <span class="close" onclick="closeFolder('project4-details-popup')">&times;</span>
+                <div class="project-details">
+                    <div class="description">
+                        <h3>Project 2 Description</h3>
+                        <p>This is where you can describe your Project 2 in detail.</p>
+                        <button onclick="openProjectUsage('project4-usage-popup')">Use</button>
+                    </div>
+                    <div class="preview">
+                        <h3>Preview</h3>
+                        <video controls>
+                            <source src="path/to/project4-video.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        
+
+    
+
+
+        <!-- Widget contents -->
+        <div class="widget_cont">
+            <div class="widget-container">
+                <!-- CPU Widget -->
+                <div class="widget">
+                    <div class="circular-progress">
+                        <svg viewBox="0 0 80 80"> <!-- Adjusted viewBox size -->
+                            <circle class="bg" cx="40" cy="40" r="35"></circle> <!-- Reduced radius to fit -->
+                            <circle class="progress" cx="40" cy="40" r="35"></circle>
+                        </svg>
+                        <div class="percentage">78%</div>
+                    </div>
+                    <div class="widget-label">Python</div>
+                </div>
+        
+                <!-- Memory Widget -->
+                <div class="widget">
+                    <div class="circular-progress">
+                        <svg viewBox="0 0 80 80">
+                            <circle class="bg" cx="40" cy="40" r="35"></circle>
+                            <circle class="progress" cx="40" cy="40" r="35"></circle>
+                        </svg>
+                        <div class="percentage">56%</div>
+                    </div>
+                    <div class="widget-label">CV</div>
+                </div>
+        
+                <!-- Disk Widget -->
+                <div class="widget">
+                    <div class="circular-progress">
+                        <svg viewBox="0 0 80 80">
+                            <circle class="bg" cx="40" cy="40" r="35"></circle>
+                            <circle class="progress" cx="40" cy="40" r="35" style="stroke-dashoffset: 219.9;"></circle>
+                        </svg>
+                        <div class="percentage">68%</div>
+                    </div>
+                    <div class="widget-label">GenAI</div>
+                </div>
+        
+                <!-- Network Widget -->
+                <div class="widget">
+                    <div class="circular-progress">
+                        <svg viewBox="0 0 80 80">
+                            <circle class="bg" cx="40" cy="40" r="35"></circle>
+                            <circle class="progress" cx="40" cy="40" r="35" style="stroke-dashoffset: 219.9;"></circle>
+                        </svg>
+                        <div class="percentage">50%</div>
+                    </div>
+                    <div class="widget-label">Web Dev</div>
+                </div>
+            </div>
+
+            <!-- macOS Notes App (bottom-right) -->
+            <div class="note-widget" id="note-widget">
+                <div class="note-header">Notes</div>
+                <div class="note-body">
+                    
+                    <div class="note_content">
+                        Welcome to my portfolio! I’m Kevin, a final-year student at VIT University, Chennai. 
+                        Here, you can explore my key projects and download my resume. For additional work, feel free to visit my GitHub.<br><br>
+                        https://github.com/warriors8970
+                    </div>
+                </div>
+                <div class="note-timestamp" id="note-timestamp">
+                    Last edited: 02/11/24
+                </div>
+            </div>
+        </div>
+
+
+        
+
+        
+    </div>
+
+    
+
+   
+
+
+
+
+    
+
+    
+
+    <script src="scripts.js"></script>
+</body>
+</html>
