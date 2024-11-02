@@ -12,7 +12,7 @@
     <div class="desktop">
         <!-- Video Background -->
         <video autoplay muted loop id="background-video">
-            <source src="/assets/desktop_image.mp4" type="video/mp4">
+            <source src="assets/desktop_image.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         
@@ -26,11 +26,10 @@
             // Function to play music on any user interaction
             function enableMusicOnInteraction() {
                 var music = document.getElementById('background-music');
-                music.play(); // Attempt to play music
-                document.removeEventListener('click', enableMusicOnInteraction); // Remove event listener once played
+                music.play(); 
+                document.removeEventListener('click', enableMusicOnInteraction); 
             }
         
-            // Attach event listener for user interaction
             document.addEventListener('click', enableMusicOnInteraction);
         </script>
 
@@ -50,10 +49,7 @@
                 <img src="/assets/open-folder.png" alt="Resume Folder">
                 <p>Resume</p>
             </div>
-            <!-- <div class="folder" onclick="openFolder('studies-popup')">
-                <img src="/assets/open-folder.png" alt="Studies Folder">
-                <p>Exposures</p>
-            </div> -->
+            
         </div>
 
        
@@ -70,14 +66,7 @@
                         <img src="/assets/open-folder.png" alt="Project 2">
                         <p>Project 2</p>
                     </div>
-                    <!-- <div class="folder" onclick="openProjectDetails('project3-details-popup')">
-                        <img src="/assets/open-folder.png" alt="Project 3">
-                        <p>Project 3</p>
-                    </div>
-                    <div class="folder" onclick="openProjectDetails('project4-details-popup')">
-                        <img src="/assets/open-folder.png" alt="Project 4">
-                        <p>Project 4</p>
-                    </div> -->
+                   
                     
                 </div>
             </div>
@@ -85,23 +74,7 @@
 
         <!-- Resume Popup -->
 
-        <!-- <div class="popup" id="resume-popup">
-            <div class="popup-content">
-                <span class="close" onclick="closeFolder('resume-popup')">&times;</span>
-                <h3 class="popup-heading">Download Resume</h3>
-                <div class="project-details">
-                    <div class="preview">
-                        <img src="/assets/Resume/1.jpg" class="preview-image" alt="Preview Image 1">
-                    </div>
-                    <div class="preview">
-                        <img src="/assets/Resume/2.jpg" class="preview-image" alt="Preview Image 2">
-                    </div>
-                </div>
-                <div class="download-button-container">
-                    <button onclick="downloadResume()">Download</button>
-                </div>
-            </div>
-        </div> -->
+       
         <div class="popup" id="resume-popup">
             <div class="popup-content">
                 <span class="close" onclick="closeFolder('resume-popup')">&times;</span>
@@ -158,7 +131,6 @@
         
                         <p>Developing CritiqueSuite presented several challenges, especially in generating reviews that are both informative and engaging. By leveraging cutting-edge NLP techniques, I refined the app to meet high standards for quality and relevance. CritiqueSuite serves as a reliable tool for anyone seeking immediate, actionable insights—ideal for movie enthusiasts, shoppers, or any decision-makers.</p>
         
-                        <!-- <button onclick="openProjectUsage('project1-usage-popup')">Use</button> -->
                     </div>
                     <div class="preview">
                         <h3>Preview</h3>
